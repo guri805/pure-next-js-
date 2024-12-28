@@ -23,6 +23,27 @@ export const SignUpHandler = async (formData) => {
   }
 };
 
+// update User Details
+export const handleUpdateUserDetails = async (email, profile) => {
+  if (!email || !profile) {
+    return { success: false, message: "fields are required." };
+  }
+  try {
+    const response = await axios.put(`http://localhost:3001/profile`, {
+      name: profile.name,
+      email: profile.email,
+      password: profile.password,
+      mobile: profile.mobile,
+      address: profile.address,
+      role: profile.role
+    });
+    return response.data;
+  } catch (error) {
+    console.log("Error updating user details:", error);
+    return { success: false, message: "Failed to update user details" };
+  }
+}
+
 // ------------------------- Authentication User end -------------------------
 
 // ------------------------- Category start ----------------------------------
