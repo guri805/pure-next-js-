@@ -12,7 +12,7 @@ const CreateCategory = () => {
   const [error, setError] = useState("");
 
   // Fetch categories
-  const getCategories = async () => {  
+  const getCategories = async () => {
     try {
       const data = await fetchCategories();
       setCategories(data.categories || []);
@@ -85,7 +85,7 @@ const CreateCategory = () => {
         setError(updateCategory.message || "Failed to update category.");
       }
     } catch (error) {
-      console.log("Error while updating category.",error);
+      console.log("Error while updating category.", error);
       setError("Error while updating category.");
     }
   };
@@ -162,6 +162,7 @@ const CreateCategory = () => {
                 onChange={(e) => setUpdatedCategoryName(e.target.value)}
               />
             </Form.Group>
+
             <Button variant="primary" type="submit">
               Update Category
             </Button>

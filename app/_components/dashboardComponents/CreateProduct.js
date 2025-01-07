@@ -14,7 +14,7 @@ const CreateProduct = () => {
       const data = await fetchCategories();
       setCategories(data.categories || []);
     } catch (error) {
-      console.error("Error fetching categories:", error);
+      console.log("Error fetching categories:", error);
       setError("Failed to load categories.");
     }
   };
@@ -46,10 +46,10 @@ const CreateProduct = () => {
         console.log(createProduct.message);
         setProduct({ name: "", description: "", price: "", categoryId: "" });
       } else if (createProduct.message) {
-        console.error(createProduct.message);
+        console.log(createProduct.message);
       }
     } catch (error) {
-      console.error("Error submitting product:", error);
+      console.log("Error submitting product:", error);
     }
   };
 
